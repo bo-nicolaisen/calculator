@@ -10,6 +10,7 @@ function getCalculatordata() {
   let firstValue = Number(document.getElementById("firstValue").value);
   let secondValue = Number(document.getElementById("secondValue").value);
 
+
   // get math operation from form
 
   let mathOperator = "select math operator";
@@ -17,7 +18,37 @@ function getCalculatordata() {
   let selector = document.querySelector('input[name="mathOperation"]:checked');
   if (selector) mathOperator = selector.value;
 
-  mathRouter(firstValue, secondValue, mathOperator);
+  validateData(firstValue, secondValue, mathOperator);
+}
+
+
+
+function validateData(firstValue, secondValue, mathOperator) {
+
+  let errorMsg = false
+
+  if (firstValue == NaN) {
+    errorMsg = "input 1 er ikke et nummer!";
+  }
+  if (secondValue == NaN) {
+    errorMsg = "input 1 er ikke et nummer!";
+  }
+
+
+
+  if (mathOperator.search(/plus|gange|dividere|minus/)) {
+    errorMsg = "not an operator!";
+  }
+
+
+
+  if (!errorMsg) {
+    mathRouter(firstValue, secondValue, mathOperator);
+  } else {
+    errorHandler(errorMsg);
+
+  }
+
 }
 
 
@@ -37,22 +68,39 @@ function mathRouter(firstValue, secondValue, mathOperator) {
       result = simpleMath(firstValue, secondValue, mathOperator);
       break;
 
-    case "multiply":
+    case "gange":
       result = simpleMath(firstValue, secondValue, mathOperator);
       break;
 
-    case "divide":
-      result = simpleMath(firstValue, secondValue, mathOperator);
+    case "dividere":
+      result = divide(firstValue, secondValue, mathOperator);
       break;
 
     default:
       result = mathOperator;
   }
 
-  console.log(result);
+  showResult(result);
 }
 
 
+function showResult(result) {
+  console.log(result);
+
+}
+
+
+
+function divide(firstVal, secondVal, myOp) {
+
+  if (firstVal == 0 || secondVal == 0) {
+    errorHandler("cannot divide by zero!");
+  } else {
+    return (firstVal / secondVal);
+  }
+
+
+}
 
 
 function simpleMath(firstVal, secondVal, myOp) {
@@ -65,7 +113,7 @@ function simpleMath(firstVal, secondVal, myOp) {
     case "minus":
       return (firstVal - secondVal);
       break;
-    case "multiply":
+    case "gange":
       return (firstVal * secondVal);
       break;
 
@@ -74,4 +122,9 @@ function simpleMath(firstVal, secondVal, myOp) {
       return (false);
   }
 
+}
+
+function errorHandler(errorMsg) {
+
+  alert(errorMsg);
 }

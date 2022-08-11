@@ -1,0 +1,38 @@
+Form
+a html form containing:
+input field 1  number
+input field 2  number
+
+toggle group for operator containing:
+    add
+    subtract
+    multiply
+    divide
+
+
+Gather data
+get data from form
+send values to validate data
+
+
+
+Validate data
+requires value 1 value 2 and and operator
+
+validate value 1 as number
+validate value 2 as number
+validate operator as string not empty
+
+if validation fails send error msg as string to error handling
+
+send verified data to math router
+
+Math router
+requires value 1 value 2 operator
+
+branch based on operator
+if divide send data to divide
+else
+send data to simple math
+
+Simple math
