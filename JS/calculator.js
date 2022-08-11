@@ -1,3 +1,8 @@
+
+
+
+
+
 function getCalculatordata() {
   console.log("math function");
 
@@ -8,9 +13,16 @@ function getCalculatordata() {
   // get math operation from form
 
   let mathOperator = "select math operator";
+
   let selector = document.querySelector('input[name="mathOperation"]:checked');
   if (selector) mathOperator = selector.value;
-  console.log(firstValue, secondValue, mathOperator);
+
+  mathRouter(firstValue, secondValue, mathOperator);
+}
+
+
+
+function mathRouter(firstValue, secondValue, mathOperator) {
 
   let result = "error";
 
@@ -18,10 +30,19 @@ function getCalculatordata() {
 
   switch (mathOperator) {
     case "plus":
-      result = firstValue + secondValue;
+      result = simpleMath(firstValue, secondValue, mathOperator);
+
       break;
     case "minus":
-      result = firstValue - secondValue;
+      result = simpleMath(firstValue, secondValue, mathOperator);
+      break;
+
+    case "multiply":
+      result = simpleMath(firstValue, secondValue, mathOperator);
+      break;
+
+    case "divide":
+      result = simpleMath(firstValue, secondValue, mathOperator);
       break;
 
     default:
@@ -29,4 +50,28 @@ function getCalculatordata() {
   }
 
   console.log(result);
+}
+
+
+
+
+function simpleMath(firstVal, secondVal, myOp) {
+
+  switch (myOp) {
+    case "plus":
+      return (firstVal + secondVal);
+
+      break;
+    case "minus":
+      return (firstVal - secondVal);
+      break;
+    case "multiply":
+      return (firstVal * secondVal);
+      break;
+
+
+    default:
+      return (false);
+  }
+
 }

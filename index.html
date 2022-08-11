@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer src="JS/calculator.js"></script>
-    <title>Document</title>
-  </head>
-  <body>
-    <!-- form to contain the calculator -->
-    <form onsubmit="return false">
-      <label for="firstValue">værdi 1:</label><br />
-      <input type="number" id="firstValue" name="firstValue" /><br />
 
-      <label for="secondValue">værdi 2:</label><br />
-      <input type="number" id="secondValue" name="secondValue" /><br />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script defer src="JS/calculator.js"></script>
+  <title>Document</title>
+</head>
 
-      <input type="radio" id="add" name="mathOperation" value="plus" />
-      <label for="plus">Plus</label>
+<body>
+  <!-- form to contain the calculator -->
+  <form onsubmit="return false">
+    <label for="firstValue">værdi 1:</label><br />
+    <input type="number" id="firstValue" name="firstValue" /><br />
 
-      <input type="radio" id="subtract" name="mathOperation" value="minus" />
-      <label for="minus">Minus</label><br />
+    <label for="secondValue">værdi 2:</label><br />
+    <input type="number" id="secondValue" name="secondValue" /><br />
 
-      <input
-        class="button"
-        type="submit"
-        value="regn den ud"
-        onclick="getCalculatordata()"
-      />
-    </form>
-  </body>
+    <input type="radio" id="add" name="mathOperation" value="plus" />
+    <label for="plus">Plus</label>
+
+    <input type="radio" id="subtract" name="mathOperation" value="minus" />
+    <label for="minus">Minus</label><br />
+
+    <input class="button" type="submit" value="regn den ud" onclick="getCalculatordata()" />
+
+  </form>
+</body>
+
 </html>
